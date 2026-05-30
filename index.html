@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Candida Protocol - Peace of Eden</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --eucalyptus: #54605C;
+    --warm-sand: #DECFC7;
+    --soft-cream: #FBF6F0;
+    --charcoal: #333333;
+    --near-black: #262626;
+    --white: #FFFFFF;
+    --mist: #F8F8F8;
+    --hibiscus: #D4658A;
+    --leaf: #5A7A4E;
+    --sunshine: #E8B84B;
+  }
+
+  body {
+    font-family: 'Poppins', Arial, sans-serif;
+    color: var(--charcoal);
+    background: var(--soft-cream);
+    line-height: 1.7;
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  /* === PAGE SECTIONS === */
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 2px 40px rgba(0,0,0,0.06);
+  }
+
+  .page-break {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  /* === COVER === */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(170deg, var(--eucalyptus) 0%, #3d4a46 50%, var(--eucalyptus) 100%);
+    color: var(--white);
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 30% 20%, rgba(222,207,199,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(222,207,199,0.05) 0%, transparent 50%);
+  }
+
+  .cover * { position: relative; z-index: 1; }
+
+  .cover-brand {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--warm-sand);
+    margin-bottom: 40px;
+  }
+
+  .cover h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 72px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    line-height: 1.1;
+  }
+
+  .cover-sub {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--warm-sand);
+    margin-bottom: 50px;
+    max-width: 500px;
+  }
+
+  .cover-line {
+    width: 80px;
+    height: 1px;
+    background: var(--warm-sand);
+    margin: 0 auto 30px;
+  }
+
+  .cover-footer {
+    font-size: 13px;
+    color: rgba(222,207,199,0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* === SECTION STYLES === */
+  .section {
+    padding: 50px 60px;
+  }
+
+  .section-sand {
+    background: var(--warm-sand);
+  }
+
+  .section-cream {
+    background: var(--soft-cream);
+  }
+
+  .section-dark {
+    background: var(--eucalyptus);
+    color: var(--white);
+  }
+
+  .section-dark h2, .section-dark h3 {
+    color: var(--warm-sand);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--near-black);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--eucalyptus);
+    margin-bottom: 6px;
+    margin-top: 28px;
+  }
+
+  h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--eucalyptus);
+    margin-bottom: 16px;
+  }
+
+  .section-intro {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.8;
+  }
+
+  p { margin-bottom: 14px; }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--warm-sand);
+    margin: 30px 0;
+  }
+
+  .divider-center {
+    margin: 30px auto;
+  }
+
+  /* === CARDS === */
+  .card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--eucalyptus);
+  }
+
+  .card-sand {
+    background: var(--warm-sand);
+    border-left-color: var(--eucalyptus);
+  }
+
+  .card-alert {
+    border-left-color: var(--hibiscus);
+    background: #fdf5f7;
+  }
+
+  .card-success {
+    border-left-color: var(--leaf);
+    background: #f5f8f4;
+  }
+
+  .card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  /* === LISTS === */
+  .food-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .food-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(222,207,199,0.5);
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .food-list li::before {
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+  }
+
+  .can-have li::before { content: '\2713'; color: var(--leaf); font-weight: 600; }
+  .cannot-have li::before { content: '\2717'; color: var(--hibiscus); font-weight: 600; }
+
+  /* === RESEARCH === */
+  .chain-step {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+  }
+
+  .chain-num {
+    min-width: 44px;
+    height: 44px;
+    background: var(--eucalyptus);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .chain-content h3 {
+    margin-top: 0;
+    font-size: 20px;
+  }
+
+  .citation {
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  .citation a {
+    color: var(--eucalyptus);
+    text-decoration: none;
+  }
+
+  .citation a:hover {
+    text-decoration: underline;
+  }
+
+  /* === STAGES === */
+  .stage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .stage-card {
+    background: var(--soft-cream);
+    border-radius: 10px;
+    padding: 24px 16px;
+    text-align: center;
+  }
+
+  .stage-card .potency {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 32px;
+    color: var(--eucalyptus);
+    margin-bottom: 6px;
+  }
+
+  .stage-card .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+  }
+
+  /* === QUOTE === */
+  .quote {
+    border-left: 3px solid var(--warm-sand);
+    padding: 20px 30px;
+    margin: 24px 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--eucalyptus);
+    line-height: 1.7;
+  }
+
+  .quote-attr {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-size: 13px;
+    color: #999;
+    margin-top: 8px;
+    display: block;
+  }
+
+  /* === TABLE === */
+  .protocol-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+  }
+
+  .protocol-table th {
+    background: var(--eucalyptus);
+    color: var(--white);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .protocol-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--warm-sand);
+    font-size: 14px;
+  }
+
+  .protocol-table tr:nth-child(even) td {
+    background: var(--soft-cream);
+  }
+
+  /* === TWO COLUMN === */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  /* === SKIN === */
+  .skin-condition {
+    background: var(--soft-cream);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+  }
+
+  .skin-condition h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: var(--near-black);
+  }
+
+  .skin-condition p {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  /* === ARROW === */
+  .arrow-down {
+    text-align: center;
+    font-size: 24px;
+    color: var(--warm-sand);
+    margin: 8px 0;
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 700px) {
+    .section { padding: 30px 24px; }
+    .cover h1 { font-size: 44px; }
+    .cover-sub { font-size: 17px; }
+    h2 { font-size: 28px; }
+    .stage-grid { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    .chain-step { flex-direction: column; }
+  }
+
+  @media print {
+    .page { box-shadow: none; }
+    .cover { min-height: auto; padding: 80px 40px; }
+    .section { padding: 40px 50px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ============ COVER ============ -->
+  <div class="cover page-break">
+    <div class="cover-brand">Peace of Eden Holistic Health</div>
+    <h1>Candida</h1>
+    <div class="cover-sub">What it is, how to heal, and the science behind why it matters more than ever</div>
+    <div class="cover-line"></div>
+    <div class="cover-footer">The Candida Protocol &amp; The Candida Connection</div>
+  </div>
+
+  <!-- ============ WHAT IS CANDIDA ============ -->
+  <div class="section">
+    <h2>What is Candida?</h2>
+    <div class="divider"></div>
+    <p>Candida is basically just yeast or fungus. In an ideal world we would have a little bit always working with the body. The problem is, especially in Western culture, we eat lots of pseudo-food, take lots of medication and stress about EVERYTHING.</p>
+    <p>This creates the perfect environment for candida to thrive and grow beyond what it should.</p>
+
+    <h3>What It Does</h3>
+    <p>Candida in essence punctures holes through the gut, creating intolerances and systemic inflammation and infection. Once the gut is leaky - from the little holes being poked through by the candida - things that we eat and pathogens are able to escape into the system. This is when intolerances and allergies begin to happen, as the body gets busy mounting an immune reaction to all the little bits that escape.</p>
+
+    <div class="quote">
+      My mentor Charles once told me that he never found a cancer that wasn't surrounded by candida. So, we must heal the gut and stop the candida.
+      <span class="quote-attr">- Kelly Wotherspoon, Naturopath</span>
+    </div>
+
+    <h3>What Triggers It</h3>
+    <p>Candida overgrowth doesn't happen in a vacuum. There are clear triggers that tip the balance:</p>
+
+    <div class="card">
+      <h3 style="margin-top:0">Antibiotics</h3>
+      <p style="margin-bottom:0">Antibiotics kill bacteria indiscriminately - including the protective Bifidobacterium and Lactobacillus species that keep candida in check. A single course of broad-spectrum antibiotics can wipe out colonisation resistance, giving candida an open field. Multiple courses compound the damage.</p>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">Acute Stress &amp; Trauma</h3>
+      <p style="margin-bottom:0">Acute stress and trauma activate the fight-or-flight response, flooding the body with cortisol. Cortisol suppresses immune surveillance (especially secretory IgA in the gut), increases intestinal permeability within hours, and shifts the microbiome toward pathogenic organisms. A single traumatic event can be the tipping point that allows candida to take hold. The body remembers - and stays locked in a stress state that feeds the overgrowth.</p>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">COVID-19 / Spike Protein</h3>
+      <p style="margin-bottom:0">The spike protein directly damages intestinal epithelial cells and depletes Bifidobacterium - the primary organism that keeps candida contained. This is covered in detail in the research section below.</p>
+    </div>
+
+    <div class="card card-alert">
+      <h3 style="color:var(--hibiscus); margin-top:0">Mother to Baby Transmission</h3>
+      <p style="margin-bottom:0">Candida is passed from mother to baby through breast milk. If the mother has systemic candida, the baby is colonised from birth. This means the child grows up with candida already established in their system, often presenting as colic, reflux, eczema, ear infections, and recurrent thrush. It's not genetic - it's transmitted. And it's treatable in both mother and child.</p>
+    </div>
+
+    <div class="citation" style="margin-top:16px">
+      Seelbinder, B. et al. (2022) "Antibiotics promote Candida albicans overgrowth by depleting colonisation resistance." <a href="https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2022.930495/full">Frontiers in Microbiology</a><br>
+      Martyn, E. et al. (2022) "Bifidobacteria inhibit Candida albicans growth via fermentation acids." <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9486989/">FEMS Microbiology Ecology</a><br>
+      Bliss, J. et al. (2019) "Expressed Breast Milk as a Predictor of Neonatal Yeast Colonization." <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6366660/">Am J Perinatol</a><br>
+      Li, Y. et al. (2024) "Multilocus sequence typing of C. albicans reveals high genetic relatedness of mother-child dyads." <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10793898/">Mycopathologia</a> (94% of mother-child pairs shared genetically identical strains)
+    </div>
+
+    <h3>Mucous Membrane Dysfunction</h3>
+    <p>At its core, systemic candida is mucous membrane dysfunction. Candida colonises mucous membranes throughout the entire body - gut, sinuses, lungs, ears, urinary tract, reproductive system, skin. Once the membranes are compromised, they become the breeding ground for <em>everything</em>:</p>
+    <ul style="margin:12px 0 12px 20px; line-height:2">
+      <li><strong>Allergies</strong> - compromised nasal and respiratory mucosa overreacts to environmental antigens</li>
+      <li><strong>Recurrent ear infections</strong> - candida in the Eustachian tube and middle ear mucosa</li>
+      <li><strong>Skin conditions</strong> - eczema, acne, psoriasis, dermatitis (the skin is the body's largest mucous membrane)</li>
+      <li><strong>Immune deficiency</strong> - 80% of immune tissue sits in the gut mucosa (GALT). Damage it, and systemic immunity collapses</li>
+      <li><strong>Parasites &amp; worms</strong> - a damaged, inflamed gut with compromised mucosa and suppressed immunity creates the ideal environment for parasitic colonisation. The candida opens the door, and everything else walks through</li>
+      <li><strong>Recurrent UTIs &amp; thrush</strong> - urogenital mucosa colonised by candida</li>
+      <li><strong>Sinus infections</strong> - nasal and sinus mucosa compromised and chronically inflamed</li>
+    </ul>
+    <p>This is why treating individual symptoms never works long-term. The antihistamines, the steroid creams, the antifungal pessaries, the antibiotics for ear infections - they address the surface while the underlying mucous membrane dysfunction persists. Fix the candida, restore the membranes, and the body stops producing symptoms because it no longer needs to.</p>
+  </div>
+
+  <!-- ============ THE CANDIDA CONNECTION ============ -->
+  <div class="section section-dark page-break">
+    <h4>The Research</h4>
+    <h2 style="color:var(--white)">The Candida Connection</h2>
+    <div class="divider" style="background:rgba(222,207,199,0.4)"></div>
+    <p style="color:var(--warm-sand); font-family:'Playfair Display',serif; font-style:italic; font-size:17px; margin-bottom:30px;">Why autoimmune disease, POTS, MCAS, skin conditions, and even cancer can all trace back to one organism - and why it's worse now than ever.</p>
+  </div>
+
+  <div class="section section-cream">
+    <h3>The Post-COVID Candida Epidemic</h3>
+    <p>Since COVID-19, we have seen an explosion in autoimmune disease, POTS (Postural Orthostatic Tachycardia Syndrome), MCAS (Mast Cell Activation Syndrome), and chronic inflammatory conditions. The medical system treats these as separate conditions. They are not. They share a single upstream root cause: <strong>systemic candida</strong>.</p>
+    <p>The research now supports what clinical experience has shown for years - when you treat the candida, all of these conditions improve and eventually resolve. Here is the chain, link by link, backed by published science.</p>
+  </div>
+
+  <!-- CHAIN LINK 1 -->
+  <div class="section">
+    <div class="chain-step">
+      <div class="chain-num">1</div>
+      <div class="chain-content">
+        <h3>Spike Protein Kills Bifidobacterium</h3>
+        <p>COVID-19 (and the spike protein it produces) causes significant depletion of <em>Bifidobacterium</em> species in the gut. This isn't a minor disruption - studies show Bifido depletion correlates directly with infection severity, and the loss persists long after the virus clears.</p>
+        <p>We also know that spike proteins specifically damage ACE2 receptors on intestinal epithelial cells and Peyer's patches - the immune sampling sites of the gut.</p>
+        <div class="citation">
+          Hazan, S. et al. (2022) "Lost microbes of COVID-19: Bifidobacterium, Faecalibacterium depletion and decreased microbiome diversity associated with SARS-CoV-2 infection severity." <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9051551/">BMJ Open Gastroenterology</a><br>
+          Jarde, A. et al. (2023) "The Role of Bifidobacterium in COVID-19: A Systematic Review." <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10532519/">Life (Basel)</a><br>
+          Bhatt, A. et al. (2024) "Could the Spike Protein Negatively Impact Beneficial Bacteria in the Gut?" <a href="https://www.mdpi.com/2673-8112/4/9/97">COVID, 4(9)</a>
+        </div>
+      </div>
+    </div>
+    <div class="arrow-down">&darr;</div>
+
+    <!-- CHAIN LINK 2 -->
+    <div class="chain-step">
+      <div class="chain-num">2</div>
+      <div class="chain-content">
+        <h3>Without Bifido, Candida Goes Systemic</h3>
+        <p>Bifidobacterium is one of the primary organisms that keeps candida in check. <em>B. adolescentis</em> in particular produces acetic and lactic acid that directly inhibit candida growth and prevent it from switching to its invasive hyphal form. Remove the Bifido, and the brake comes off.</p>
+        <p>Post-COVID patients show significantly elevated candida colonisation in the gut compared to healthy controls.</p>
+        <div class="citation">
+          Martyn, E. et al. (2022) "Human gut bifidobacteria inhibit the growth of the opportunistic fungal pathogen Candida albicans." <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9486989/">FEMS Microbiology Ecology</a><br>
+          Abt, M. & Bhatt, A. (2024) "Long COVID and gut candidiasis: What is the existing relationship?" <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11514539/">PMC</a><br>
+          Preprints.org (2023) "The Candida Covid Connection: Preexisting Candida Overgrowth and Gut Dysbiosis Drives Long Covid." <a href="https://www.preprints.org/manuscript/202311.1076">Preprints</a>
+        </div>
+      </div>
+    </div>
+    <div class="arrow-down">&darr;</div>
+
+    <!-- CHAIN LINK 3 -->
+    <div class="chain-step">
+      <div class="chain-num">3</div>
+      <div class="chain-content">
+        <h3>Candida Punctures the Gut (Leaky Gut)</h3>
+        <p>Candida produces acetaldehyde - a toxin that dose-dependently destroys tight junction proteins (occludin, ZO-1) that hold gut cells together. It literally pokes holes in the intestinal wall. Through these holes, undigested food particles, bacterial toxins (LPS), and candida itself escape into the bloodstream.</p>
+        <p>This is when your body starts reacting to everything. Food intolerances, allergies, chemical sensitivities - the immune system is mounting a response to all the things leaking through.</p>
+        <div class="citation">
+          Elamin, E. et al. (2012) "Effects of Ethanol and Acetaldehyde on Tight Junction Integrity." <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0035008">PLOS ONE</a><br>
+          Panpetch, W. et al. (2020) "Candida albicans enhances colitis severity through leaky gut-enhanced systemic inflammation and gut-dysbiosis." <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7527076/">Gut Microbes</a>
+        </div>
+      </div>
+    </div>
+    <div class="arrow-down">&darr;</div>
+
+    <!-- CHAIN LINK 4 -->
+    <div class="chain-step">
+      <div class="chain-num">4</div>
+      <div class="chain-content">
+        <h3>The Immune System Goes Haywire</h3>
+        <p>Once candida is systemic, three things happen simultaneously:</p>
+
+        <div class="card" style="margin-top:12px">
+          <h3 style="color:var(--hibiscus)">Autoimmune Disease</h3>
+          <p>The immune system produces Th17 cells to fight candida. Published in <em>Cell</em> journal: these Th17 cells cross-react with human tissue through molecular mimicry. Your body's defence against the fungus starts attacking your own organs - thyroid (Hashimotos), joints (RA), nervous system (MS), gut (Crohns, UC).</p>
+          <div class="citation">Shao, T. et al. (2019) "Human Anti-fungal Th17 Immunity and Pathology Rely on Cross-Reactivity against Candida albicans." <a href="https://www.sciencedirect.com/science/article/pii/S0092867419301047">Cell, 176(6)</a></div>
+        </div>
+
+        <div class="card" style="border-left-color:var(--sunshine)">
+          <h3 style="color:var(--sunshine)">MCAS (Mast Cell Activation Syndrome)</h3>
+          <p>Candida glycoprotein directly activates mast cells, triggering degranulation and histamine release. With 80% of immune tissue in the gut, and the gut full of candida, the mast cells are in a state of constant activation. Histamine floods the system causing hives, flushing, brain fog, anxiety, heart palpitations, and food reactions.</p>
+          <div class="citation">Lopes, J. et al. (2012) "Role and Relevance of Mast Cells in Fungal Infections." <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3374363/">Clinical and Developmental Immunology</a></div>
+        </div>
+
+        <div class="card" style="border-left-color:var(--leaf)">
+          <h3 style="color:var(--leaf)">POTS (Postural Orthostatic Tachycardia Syndrome)</h3>
+          <p>Candida in the gut irritates the vagus nerve - the major nerve connecting the gut to the brain and heart. Vagal irritation combined with mast cell-driven inflammation disrupts the autonomic nervous system. Heart rate spikes on standing, blood pressure drops, dizziness, fainting - the body's thermostat is broken.</p>
+          <div class="citation">Sasso, F. et al. (2024) "Gut microbiota composition is altered in POTS and post-acute COVID-19 syndrome." <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10858216/">Scientific Reports</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow-down">&darr;</div>
+
+    <!-- CHAIN LINK 5 -->
+    <div class="chain-step">
+      <div class="chain-num">5</div>
+      <div class="chain-content">
+        <h3>Skin Conditions</h3>
+        <p>The skin is a mirror of the gut. When the gut is leaky and the immune system is dysregulated by candida, it shows on the skin:</p>
+      </div>
+    </div>
+
+    <div class="skin-condition">
+      <h3>Eczema / Dermatitis</h3>
+      <p>Candida-driven gut permeability allows food antigens into the bloodstream, triggering Th2 immune polarisation and IgE-mediated mast cell degranulation in the skin. The gut-brain-skin axis means that gut dysbiosis directly worsens eczema. Studies consistently show reduced Bifidobacterium in eczema patients.</p>
+    </div>
+
+    <div class="skin-condition">
+      <h3>Acne</h3>
+      <p>Candida drives insulin resistance (via systemic inflammation), which increases IGF-1 and androgens, which increases sebum production. Gut dysbiosis is 10x more prevalent in acne patients. The gut-brain-skin theory (Stokes &amp; Pillsbury, 1930) - now validated by modern research - identified this connection nearly a century ago.</p>
+    </div>
+
+    <div class="skin-condition">
+      <h3>Psoriasis</h3>
+      <p>Candida drives Th17 cell activation - the exact same immune pathway responsible for psoriasis. Psoriatic plaques contain 20x normal levels of inflammatory mediators. Candida in the gut fuels this Th17 response systemically. Gut dysbiosis with reduced <em>Akkermansia</em> is consistently found in psoriasis patients.</p>
+    </div>
+
+    <div class="skin-condition">
+      <h3>Urticaria / Hives</h3>
+      <p>Candida directly activates mast cells in the skin. Combined with histamine intolerance from DAO enzyme suppression (candida metabolites impair DAO function), the result is chronic hives, flushing, and itching that antihistamines alone cannot resolve.</p>
+    </div>
+
+    <div class="card card-success" style="margin-top:20px">
+      <h3 style="color:var(--leaf); margin-top:0">The Pattern</h3>
+      <p style="margin-bottom:0">In every one of these conditions, the published research points upstream to gut dysbiosis, intestinal permeability, and immune dysregulation - exactly what systemic candida causes. When you treat the candida, repair the gut, and restore the Bifidobacterium, the downstream conditions resolve. Not managed - <em>resolved</em>.</p>
+    </div>
+  </div>
+
+  <!-- CHAIN LINK 6 - NERVOUS SYSTEM / BODY -->
+  <div class="section">
+    <div class="chain-step">
+      <div class="chain-num">6</div>
+      <div class="chain-content">
+        <h3>The Body Holds the Score - Nervous System &amp; Somatic Connection</h3>
+        <p>Candida doesn't just affect biochemistry - it locks the entire body into a stress state. And that stress state feeds the candida right back. This is the feedback loop that keeps people stuck:</p>
+      </div>
+    </div>
+
+    <div class="card" style="border-left-color:#7b68ae">
+      <h3 style="color:#7b68ae; margin-top:0">The Candida-Stress-Body Loop</h3>
+      <p><strong>Candida</strong> drives constant immune activation, producing inflammatory cytokines (IL-6, TNF-alpha) that signal danger to the nervous system. The body interprets this as threat and shifts into <strong>fight-or-flight</strong> (sympathetic dominance).</p>
+      <p>When the nervous system is locked in fight-or-flight, the <strong>psoas muscle</strong> - the only muscle connecting your spine to your legs - contracts and stays contracted. This is a primal protective reflex. But chronic psoas contraction:</p>
+      <ul style="margin:8px 0 8px 20px; line-height:2">
+        <li><strong>Compresses the diaphragm</strong> - restricting breathing to shallow chest breaths</li>
+        <li><strong>Reduces vagal tone</strong> - the vagus nerve runs through the diaphragm, and restricted breathing means reduced vagal stimulation</li>
+        <li><strong>Drops parasympathetic function</strong> - the body cannot rest, digest, or heal</li>
+        <li><strong>Compresses the gut</strong> - physically restricting blood flow and motility in the intestines</li>
+        <li><strong>Traps trauma in the fascia</strong> - fascia contains approximately 250 million nerve endings and acts as a sensory organ, holding stress patterns in the body</li>
+      </ul>
+      <p>The result: <strong>gut motility slows, candida thrives in the stagnant environment, immune surveillance drops further, and the loop perpetuates</strong>.</p>
+    </div>
+
+    <div class="card" style="border-left-color:var(--sunshine)">
+      <h3 style="color:var(--sunshine); margin-top:0">Modern Life Makes It Worse</h3>
+      <p style="margin-bottom:0">We sit for 8-12 hours a day. Sitting shortens the psoas, compresses the gut, and reduces diaphragmatic breathing - keeping the nervous system in a low-grade stress state even without psychological stress. Add processed food, antibiotic history, and the post-COVID microbiome damage, and you have the perfect storm: a body locked in fight-or-flight, with a gut full of candida, and a nervous system that cannot access the parasympathetic state needed to heal.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3 style="color:var(--leaf); margin-top:0">Breaking the Loop</h3>
+      <p>This is why the candida protocol alone may not be enough for some people. The biochemical protocol (diet, homeopathics, probiotics) addresses the candida directly. But the <strong>somatic work</strong> - hip release, psoas release, breathwork, vagal toning - breaks the loop from the physical side.</p>
+      <p>When you release the psoas, the diaphragm frees up. When the diaphragm moves fully, vagal tone improves. When vagal tone improves, the parasympathetic nervous system activates. When parasympathetic activates, gut motility returns, immune function restores, and the body can finally do what it has been trying to do all along: <em>heal</em>.</p>
+      <p style="margin-bottom:0">We recommend combining this protocol with regular hip release and nervous system regulation practices. See our companion guide: <strong><a href="https://aiwithsoulofficial.github.io/hip-release-guide/" style="color:var(--eucalyptus)">Hip Release &amp; Nervous System Regulation</a></strong>.</p>
+    </div>
+
+    <div class="citation">
+      Bordoni, B. &amp; Zanier, E. (2015) "The psoas major muscle and diaphragm: from biomechanics to physiotherapy." <em>Journal of Bodywork and Movement Therapies</em><br>
+      van der Kolk, B. (2014) "The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma." Penguin Books<br>
+      Schleip, R. et al. (2012) "Fascia as a sensory organ: a target of myofascial manipulation." <em>Fascia Research II</em><br>
+      Porges, S. (2011) "The Polyvagal Theory: Neurophysiological Foundations of Emotions, Attachment, Communication, and Self-Regulation." W.W. Norton
+    </div>
+  </div>
+
+  <!-- CHAIN LINK 7 - CANCER -->
+  <div class="section section-sand">
+    <div class="chain-step">
+      <div class="chain-num">7</div>
+      <div class="chain-content">
+        <h3>Candida and Cancer</h3>
+        <p>Candida produces acetaldehyde - classified by the International Agency for Research on Cancer (IARC) as a <strong>Group 1 carcinogen</strong> (the same classification as asbestos and tobacco smoke). Through biofilm formation, candida ensures long-term tissue exposure to this carcinogen.</p>
+        <p>Published mechanisms include: activation of oncogenic signalling pathways, chronic NF-kB inflammation (the master switch for cancer progression), immune suppression that allows abnormal cells to evade detection, and direct tumour promotion via hypoxia signalling.</p>
+        <p>Environmental cancers - those not caused by inherited genetic mutations (BRCA, Li-Fraumeni, Lynch syndrome) - have candida creating the conditions: chronic inflammation, carcinogenic metabolites, immune evasion, and a leaky gut allowing other carcinogens systemic access.</p>
+        <div class="citation">
+          Li, J. et al. (2022) "The research progress in the interaction between Candida albicans and cancers." <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9554461/">Frontiers in Microbiology</a><br>
+          Kostic, A. et al. (2023) "A Putative Role of Candida albicans in Promoting Cancer Development." <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10305569/">Pathogens</a><br>
+          eLife (2024) "Candida albicans drives colorectal cancer progression by inducing hypoxia signaling." <a href="https://elifesciences.org/reviewed-preprints/108665">eLife</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ THE PROTOCOL ============ -->
+  <div class="section section-dark page-break">
+    <h4>The Protocol</h4>
+    <h2 style="color:var(--white)">Healing Candida</h2>
+    <div class="divider" style="background:rgba(222,207,199,0.4)"></div>
+    <p style="color:var(--warm-sand); font-family:'Playfair Display',serif; font-style:italic; font-size:17px;">Four simple components. Complete compliance. The body does the rest.</p>
+  </div>
+
+  <!-- COMPONENT 1: DIET -->
+  <div class="section">
+    <h2>1. The Diet</h2>
+    <div class="divider"></div>
+    <p>Review all of the foods in both the 'Can Have' and 'Cannot Have' lists below. If it is not listed here, the general rule of thumb is that it's okay. Common sense must prevail - <strong>if it's sweet, it's probably a no-go</strong>. Check the ingredients list of foods when you are unsure. Disregard the nutritional panel, as there are many foods that have naturally occurring sugars in them.</p>
+
+    <div class="card card-alert">
+      <h3 style="color:var(--hibiscus); margin-top:0">Critical Rule</h3>
+      <p style="margin-bottom:0">If you break the diet in ANY way, you will flare. This looks different to each person depending on their symptom picture - it's the body showing you where the candida is. When you have it 100% right, you just get better. The body calms. You will be hungry and tired, especially in the first 3 months - this is normal and expected. Then you heal.</p>
+    </div>
+
+    <div class="two-col" style="margin-top:30px">
+      <div>
+        <h3 style="color:var(--leaf)">Can Have</h3>
+        <ul class="food-list can-have">
+          <li>All vegetables except mushrooms</li>
+          <li>All fruit except grapes</li>
+          <li>All meats except bacon, corned beef and ham (sugar cured meats). Dextrose or smoke cured is ok</li>
+          <li>Meats, seafood, fish, sardines (even in cans), poultry</li>
+          <li>Free range eggs</li>
+          <li>Grains in moderation - crackers, rice cakes, savoury biscuits</li>
+          <li>Processed cheese or melted hard cheese <em style="font-size:12px;color:#999">(some people still react - test your tolerance)</em></li>
+          <li>Yeast-free bread</li>
+          <li>Proper yeast-free sourdough bread</li>
+          <li>Bread if well toasted (VERY crunchy - think crouton crunchy)</li>
+          <li>Pure spirits including scotch, vodka, brandy, white rum</li>
+          <li>NutraSweet products, weight watchers range &amp; diabetic ranges</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="color:var(--hibiscus)">Cannot Have</h3>
+        <ul class="food-list cannot-have">
+          <li>Mould-containing foods</li>
+          <li>Sugar including honey, malt, coconut sugar or nectar &amp; maple syrup</li>
+          <li>Cheese except processed (some people can do hard cheeses if melted - test tolerance)</li>
+          <li>Sour milk &amp; buttermilk</li>
+          <li><strong>Peanuts - absolute no-go</strong></li>
+          <li>All other nuts unless WELL roasted <em style="font-size:12px;color:#999">(some people still react even then)</em></li>
+          <li>All alcoholic drinks unless spirits mentioned above</li>
+          <li>Grapes</li>
+          <li>All dried fruits</li>
+          <li>Fermented foods and drinks <strong>including vinegar</strong></li>
+          <li>Mushrooms &amp; edible fungi foods</li>
+          <li>Yeasts and yeast extracts</li>
+          <li>Vegemite, promite, marmite</li>
+          <li>Cakes, biscuits and pastries</li>
+          <li>Fruit juice with additives - fresh juice is ok</li>
+          <li>No beer or wine including cooked wines</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="text-align:center; margin-top:20px; font-family:'Playfair Display',serif; font-style:italic; color:#999; font-size:16px;">Use common sense. If it tastes sweet, it's probably not going to suit this protocol.<br>Just remember, this is not forever - this is simply a means to an end.</p>
+
+    <h3>Sweetener</h3>
+    <p><strong>Xylitol</strong> is the only recommended sweetener on this protocol. Be careful with sugar alcohols as too much will have you running to the loo.</p>
+  </div>
+
+  <!-- COMPONENT 2: HOMEOPATHICS -->
+  <div class="section section-cream page-break">
+    <h2>2. Homeopathic Candida Sprays</h2>
+    <div class="divider"></div>
+    <p>You will have 4 stages of Candida Sprays to graduate through. You do <strong>not</strong> take all 4 at once. You begin on the 15C only.</p>
+
+    <div class="stage-grid">
+      <div class="stage-card">
+        <div class="label">Stage 1</div>
+        <div class="potency">15C</div>
+        <div class="label">Start here</div>
+      </div>
+      <div class="stage-card">
+        <div class="label">Stage 2</div>
+        <div class="potency">30C</div>
+        <div class="label">When ready</div>
+      </div>
+      <div class="stage-card">
+        <div class="label">Stage 3</div>
+        <div class="potency">60C</div>
+        <div class="label">When ready</div>
+      </div>
+      <div class="stage-card">
+        <div class="label">Stage 4</div>
+        <div class="potency">200C</div>
+        <div class="label">Final stage</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">Dosage</h3>
+      <p><strong>One spray under the tongue, morning and night.</strong></p>
+      <p>No food or drinks 10 minutes either side of doing the spray.</p>
+    </div>
+
+    <div class="card card-alert">
+      <h3 style="color:var(--hibiscus); margin-top:0">Important</h3>
+      <p style="margin-bottom:0">As you go through the protocol, you <strong>must</strong> be checked (via bioresonance testing) to confirm you are ready to move to the next stage. Do not self-progress. Monthly appointments at minimum are highly recommended.</p>
+    </div>
+  </div>
+
+  <!-- COMPONENT 3: PROBIOTICS -->
+  <div class="section">
+    <h2>3. Probiotics</h2>
+    <div class="divider"></div>
+    <p>We use <strong>Natren</strong> probiotics exclusively. This is the only acceptable probiotic brand for this protocol.</p>
+
+    <div class="card card-success">
+      <h3 style="color:var(--leaf); margin-top:0">Why Bifido?</h3>
+      <p style="margin-bottom:0">The research is clear: <em>Bifidobacterium</em> is one of the primary organisms that keeps candida in check. Published in <em>FEMS Microbiology Ecology</em> (2022), <em>B. adolescentis</em> produces fermentation acids that directly inhibit candida growth. We also know that COVID spike proteins kill off Bifidobacterium in the gut - which is our theory about why we now see such an explosion in autoimmune disease, MCAS, POTS, and cancer post-COVID. Nobody is addressing the candida.</p>
+    </div>
+
+    <h3>Stage 1: Bifido Factor</h3>
+    <p>Start here and continue until you graduate to 200C potency (or as directed).</p>
+
+    <table class="protocol-table">
+      <tr><th>Who</th><th>Product</th><th>Dosage</th></tr>
+      <tr><td>Adults</td><td><a href="https://www.natren.com/products/bifido-factor?variant=28014015545449" style="color:var(--eucalyptus)">Natren Bifido Factor (powder)</a></td><td>1 teaspoon daily</td></tr>
+      <tr><td>Children over 2 years</td><td><a href="https://www.natren.com/products/bifido-factor?variant=28014015545449" style="color:var(--eucalyptus)">Natren Bifido Factor (powder)</a></td><td>1/2 teaspoon daily</td></tr>
+      <tr><td>Children under 2 years</td><td><a href="https://www.natren.com/products/life-start" style="color:var(--eucalyptus)">Natren Life Start (powder)</a></td><td>1/4 teaspoon daily</td></tr>
+    </table>
+
+    <div class="card" style="margin-top:16px">
+      <h3 style="margin-top:0">How to Take It</h3>
+      <ol style="margin:0 0 0 20px; line-height:2.2">
+        <li>Add your dose to a glass of <strong>room temperature water</strong> (not cold, not hot)</li>
+        <li>Let it <strong>stand for 5 minutes</strong> to allow the culture to awaken</li>
+        <li>Drink</li>
+        <li><strong>No food for 20 minutes</strong> after taking</li>
+      </ol>
+      <p style="margin-top:10px"><strong>Note:</strong> Natren offers dairy-free versions, but we recommend the standard (lactose) version even if you are lactose intolerant - the lactose feeds the culture and it does a better job. Most people tolerate it fine at these small doses.</p>
+      <p style="margin-bottom:0; margin-top:10px; font-size:13px; color:#888;">Take in the morning on an empty stomach for best results.</p>
+      <p style="margin-top:12px"><strong>Breastfeeding mothers:</strong> Mix the probiotic powder with a small amount of expressed breast milk and paint onto the nipple before a feed. This delivers the Bifido directly to the baby during feeding, addressing both mother and child simultaneously.</p>
+    </div>
+
+    <h3>Stage 2: Megadophilus</h3>
+    <p>When you graduate to the 200C spray, you transition to Natren Megadophilus powder. Same method of ingestion - room temperature water, stand 5 minutes, drink, no food for 20 minutes.</p>
+
+    <table class="protocol-table">
+      <tr><th>Who</th><th>Product</th><th>Dosage</th></tr>
+      <tr><td>Adults</td><td><a href="https://www.natren.com/products/megadophilus-1?variant=28000015614057" style="color:var(--eucalyptus)">Natren Megadophilus (powder)</a></td><td>1/4 teaspoon daily</td></tr>
+      <tr><td>Children</td><td><a href="https://www.natren.com/products/megadophilus-1?variant=28000015614057" style="color:var(--eucalyptus)">Natren Megadophilus (powder)</a></td><td>1/8 teaspoon daily</td></tr>
+    </table>
+
+    <div class="card card-success" style="margin-top:16px">
+      <h3 style="color:var(--leaf); margin-top:0">Ordering Natren Products</h3>
+      <p>Order directly from <strong><a href="https://www.natren.com" style="color:var(--eucalyptus)">natren.com</a></strong> - get the 4.5oz bottles of each for better value. On orders over $250 USD, use discount code <strong style="font-size:18px; color:var(--eucalyptus)">25050AU1</strong> for 50% off.</p>
+      <p style="margin-bottom:0; font-size:13px; color:#888;">Order directly yourself - it works out cheaper than buying locally in Australia due to GST and import costs.</p>
+    </div>
+  </div>
+
+  <!-- WHAT TO EXPECT -->
+  <div class="section section-sand page-break">
+    <h2>What to Expect</h2>
+    <div class="divider"></div>
+
+    <div class="card" style="background:var(--white)">
+      <h3 style="margin-top:0">The First 3 Months</h3>
+      <p>You will be <strong>hungry</strong> and <strong>tired</strong>. This is normal. Your body is redirecting energy to heal the gut lining, kill off the candida, and recalibrate your immune system. Honour it. Rest when you can. Eat within the protocol guidelines - as much as you need.</p>
+    </div>
+
+    <div class="card" style="background:var(--white)">
+      <h3 style="margin-top:0">If You Break the Diet</h3>
+      <p>You will flare. What that looks like depends on your unique symptom picture - it might be a skin breakout, joint pain, brain fog, digestive upset, anxiety, or any of the symptoms that brought you to this protocol. This is the body showing you where the candida has been doing its damage. Note it, learn from it, and get back on track.</p>
+    </div>
+
+    <div class="card" style="background:var(--white)">
+      <h3 style="margin-top:0">When It's Working</h3>
+      <p>When you have the protocol 100% right, you just get better. The body calms. Symptoms ease. Sleep improves. Energy returns. The conditions that brought you here - whether that's autoimmune disease, skin conditions, MCAS, POTS, or chronic inflammation - begin to resolve. Not managed. <em>Resolved</em>.</p>
+    </div>
+  </div>
+
+  <!-- WHY NOW -->
+  <div class="section">
+    <h2>Why This Matters Now</h2>
+    <div class="divider"></div>
+    <p>Since the COVID-19 pandemic, practitioners around the world have seen an unprecedented surge in autoimmune conditions, mast cell activation, dysautonomia, and chronic inflammatory disease. The medical system is treating each of these as separate conditions with separate medications.</p>
+    <p>The research now supports what naturopathic clinical experience has shown: these are not separate conditions. They are downstream symptoms of a single upstream cause - systemic candida overgrowth, driven by the depletion of protective Bifidobacterium, driven by the spike protein.</p>
+
+    <div class="quote">
+      Fix the candida. Restore the Bifido. Heal the gut. Everything downstream resolves.
+    </div>
+
+    <p>This protocol has been used successfully for over a decade. The science has now caught up with the clinical reality.</p>
+  </div>
+
+  <!-- REFERENCES -->
+  <div class="section section-cream">
+    <h4>References</h4>
+    <h2>Published Research</h2>
+    <div class="divider"></div>
+    <div style="font-size:12px; line-height:1.8; color:#666">
+      <p>Hazan, S. et al. (2022) "Lost microbes of COVID-19: Bifidobacterium, Faecalibacterium depletion and decreased microbiome diversity associated with SARS-CoV-2 infection severity." <em>BMJ Open Gastroenterology.</em> PMC9051551</p>
+      <p>Bhatt, A. et al. (2024) "Could the Spike Protein Derived from mRNA Vaccines Negatively Impact Beneficial Bacteria in the Gut?" <em>COVID, 4(9), 97.</em></p>
+      <p>Martyn, E. et al. (2022) "Human gut bifidobacteria inhibit the growth of the opportunistic fungal pathogen Candida albicans." <em>FEMS Microbiology Ecology, 98(10).</em> PMC9486989</p>
+      <p>Abt, M. &amp; Bhatt, A. (2024) "Long COVID and gut candidiasis: What is the existing relationship?" PMC11514539</p>
+      <p>Elamin, E. et al. (2012) "Effects of Ethanol and Acetaldehyde on Tight Junction Integrity: In Vitro Study in a Three Dimensional Intestinal Epithelial Cell Culture Model." <em>PLOS ONE, 7(4).</em></p>
+      <p>Panpetch, W. et al. (2020) "Candida albicans administration enhances colitis severity through leaky gut-enhanced systemic inflammation and gut-dysbiosis but attenuated by Lactobacillus rhamnosus L34." <em>Gut Microbes, 11(3).</em> PMC7527076</p>
+      <p>Shao, T. et al. (2019) "Human Anti-fungal Th17 Immunity and Pathology Rely on Cross-Reactivity against Candida albicans." <em>Cell, 176(6), 1340-1355.</em></p>
+      <p>EMBO (2025) "Interplay between fungal infections and autoimmunity: mechanisms and therapeutic perspectives." <em>EMBO Molecular Medicine.</em></p>
+      <p>Lopes, J. et al. (2012) "Role and Relevance of Mast Cells in Fungal Infections." <em>Clinical and Developmental Immunology.</em> PMC3374363</p>
+      <p>Sasso, F. et al. (2024) "Gut microbiota composition is altered in postural orthostatic tachycardia syndrome and post-acute COVID-19 syndrome." <em>Scientific Reports.</em> PMC10858216</p>
+      <p>Li, J. et al. (2022) "The research progress in the interaction between Candida albicans and cancers." <em>Frontiers in Microbiology, 13.</em> PMC9554461</p>
+      <p>Kostic, A. et al. (2023) "A Putative Role of Candida albicans in Promoting Cancer Development." <em>Pathogens, 12(6).</em> PMC10305569</p>
+      <p>eLife (2024) "Candida albicans drives colorectal cancer progression by inducing hypoxia signaling."</p>
+      <p>Preprints.org (2023) "The Candida Covid Connection: Preexisting Candida Overgrowth and Gut Dysbiosis Drives Long Covid."</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="section section-dark" style="text-align:center; padding:40px 60px;">
+    <p style="font-family:'Playfair Display',serif; font-size:24px; color:var(--warm-sand); margin-bottom:8px;">Peace of Eden</p>
+    <p style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:20px;">Holistic Health</p>
+    <p style="font-size:13px; color:rgba(255,255,255,0.6); margin-bottom:0;">This protocol is provided for educational purposes and should be used under the guidance of a qualified naturopathic practitioner. Always consult with your healthcare provider before making changes to your health regimen.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
